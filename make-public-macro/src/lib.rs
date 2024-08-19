@@ -39,6 +39,7 @@ impl Parse for StructField {
 #[proc_macro_attribute]
 pub fn public(_attr: TokenStream, item: TokenStream) -> TokenStream {
     let ast = parse_macro_input!(item as DeriveInput);
+    println!("{:?}", ast);
     let name = ast.ident;
     let fields = match ast.data {
         Struct(
